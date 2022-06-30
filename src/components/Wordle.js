@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import useWordle from '../hooks/useWordle';
 
 const Wordle = ({ sol }) => {
-    const { currentGuess, handleKeyup } = useWordle(sol);
+    const { currentGuess, handleKeyup, guesses } = useWordle(sol);
 
     useEffect(() => {
         window.addEventListener('keyup', handleKeyup);
@@ -14,6 +14,8 @@ const Wordle = ({ sol }) => {
             {sol}
             <hr />
             current-guess - {currentGuess}
+            <hr />
+            {guesses.map((el) => el)}
         </div>
     );
 };
